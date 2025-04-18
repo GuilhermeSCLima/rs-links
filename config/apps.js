@@ -45,9 +45,9 @@ var apps = [
       url: "https://play.google.com/store/search?q=ahgora%20multi&amp;c=apps"
     },
     {
-      name: "Conota Câmera GPS",
-      icon: "./assets/icons/conota.webp",
-      url: "https://play.google.com/store/apps/details?id=com.gps.survey.cam&hl=pt_BR"
+      name: "Timestamp Camera",
+      icon: "./assets/icons/timestampcam.webp",
+      url: "https://play.google.com/store/apps/details?id=com.jeyluta.timestampcamerafree"
     },
     {
       name: "Meu alelo (VR)",
