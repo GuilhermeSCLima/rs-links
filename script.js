@@ -1,3 +1,12 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then((res) => console.log("service worker registered"))
+      .catch((err) => console.log("service worker not registered", err));
+  });
+}
+
 let theme = "light";
 let themeIcon = "./assets/sun.png";
 let containerWidth = 0;
@@ -22,41 +31,48 @@ const updateThemeAndIcon = (newTheme) => {
   setTimeout(() => {
     themeIconimage.src = icon;
   }, 300);
-  setTimeout(() => {
-    toggling = false;
-  }, 900);
 };
 
 const showApps = () => {
   const applicationSection = document.getElementById("aplications");
 
-  const html = []
+  if (!applicationSection) {
+    console.error("Elemento #aplications não encontrado.");
+    return;
+  }
 
-  apps.map(app => {
-    let text = `
+  if (!Array.isArray(apps) || apps.length === 0) {
+    applicationSection.innerHTML = `<p class="text-center text-zinc-500 dark:text-zinc-300">Nenhum link disponível.</p>`;
+    return;
+  }
+
+  const html = apps.map((app) => {
+    const safeName = app.name || "Aplicativo";
+    const safeUrl = app.url || "#";
+    const safeIcon = app.icon || "./assets/logo.png";
+
+    return `
       <a
-          href="${app.url}"
-          class="sm:w-32 w-16 flex flex-col items-center overflow-wrap"
-          target="_blank"
-        >
-          <img
-            class="sm:w-32 sm:h-32 w-16 h-16 rounded-4xl shadow"
-            src="${app.icon}"
-          />
-          <span
-            class="text-xl font-semibold dark:text-stone-200 overflow-wrap text-center"
-          >
-            ${app.name}
-          </span>
-        </a>
-    `
-    html.push(text)
-  })
+        href="${safeUrl}"
+        class="sm:w-32 w-20 flex flex-col items-center overflow-wrap hover:scale-105 transition-transform"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="${safeName}"
+      >
+        <img
+          class="sm:w-32 sm:h-32 w-16 h-16 rounded-4xl shadow"
+          src="${safeIcon}"
+          alt="${safeName}"
+        />
+        <span class="text-center text-sm sm:text-base font-medium mt-2 dark:text-stone-200 text-stone-800">
+          ${safeName}
+        </span>
+      </a>
+    `;
+  });
 
-  console.table(html)
-
-  applicationSection.innerHTML = html.join('')
-}
+  applicationSection.innerHTML = html.join("");
+};
 
 document.addEventListener("DOMContentLoaded", () => {
   if (toggleButton) {

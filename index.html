@@ -6,42 +6,82 @@
     <title>Links - Apoio de campo</title>
     <link rel="stylesheet" href="./main.css" />
     <link rel="shortcut icon" href="./assets/logo.png" type="image/png" />
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="./assets/logo.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#78009d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#78009d" />
+    <!-- OG preview -->
+    <meta property="og:title" content="Links - Apoio de campo" />
+    <meta
+      property="og:description"
+      content="Links úteis para trabalho em campo (RS Telecom/Vivo)"
+    />
+    <meta
+      property="og:image"
+      content="https://guilhermelima.dev/rs-links/assets/logo.png"
+    />
+    <meta property="og:url" content="https://guilhermelima.dev/rs-links/" />
+    <meta property="og:type" content="website" />
+    <!-- X preview -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Links - Apoio de campo" />
+    <meta
+      name="twitter:description"
+      content="Links úteis para trabalho em campo (RS Telecom/Vivo)"
+    />
+    <meta
+      name="twitter:image"
+      content="https://guilhermelima.dev/rs-links/assets/logo.png"
+    />
   </head>
   <body class="dark:bg-zinc-700 bg-stone-100">
-    <header
-      class="flex justify-evenly items-center bg-slate-300 dark:bg-zinc-200 border-b-2 border-[#78009d] py-4"
-    >
-      <img src="./assets/logo.png" alt="RS telecom logo" class="w-16 sm:w-32" />
-      <h1 class="text-2xl font-extrabold text-stone-900">
-        LINKS <span class="text-[#78009d]">VIVO</span>
-      </h1>
-      <button
-        id="theme-toggle"
-        class="w-20 h-9 bg-slate-400 dark:bg-gray-400 rounded-4xl flex items-center justify-center relative"
-        onclick="toggleTheme()"
+    <noscript>
+      <p class="text-center text-red-500">
+        Por favor, ative o JavaScript para usar este site corretamente.
+      </p>
+    </noscript>
+    <main>
+      <header
+        class="flex justify-evenly items-center bg-slate-300 dark:bg-zinc-200 border-b-2 border-[#78009d] py-4"
       >
-        <span
-          id="theme-icon-container"
-          class="w-16 bg-slate-300 dark:bg-gray-300 rounded-4xl h-6 flex items-center p-1"
+        <img
+          src="./assets/logo.png"
+          alt="RS telecom logo"
+          class="w-16 sm:w-32"
+        />
+        <h1 class="text-2xl font-extrabold text-stone-900">
+          LINKS <span class="text-[#78009d]">VIVO</span>
+        </h1>
+        <button
+          id="theme-toggle"
+          class="w-20 h-9 bg-slate-400 dark:bg-gray-400 rounded-4xl flex items-center justify-center relative"
+          onclick="toggleTheme()"
         >
           <span
-            id="theme-slider"
-            class="slider w-5 h-5 bg-slate-600 dark:bg-gray-600 rounded-full flex items-center justify-center absolute transition-transform duration-300"
-            :style="{
-            transform:
-              theme === 'dark' ? 'translateX(0px)' : `translateX(${containerWidth - 24}px)`,
-          }"
+            id="theme-icon-container"
+            class="w-16 bg-slate-300 dark:bg-gray-300 rounded-4xl h-6 flex items-center p-1"
           >
-            <img id="theme-icon" class="size-4 z-10" src="./assets/sun.png" />
+            <span
+              id="theme-slider"
+              class="slider w-5 h-5 bg-slate-600 dark:bg-gray-600 rounded-full flex items-center justify-center absolute transition-transform duration-300"
+              :style="{
+              transform:
+                theme === 'dark' ? 'translateX(0px)' : `translateX(${containerWidth - 24}px)`,
+            }"
+            >
+              <img id="theme-icon" class="size-4 z-10" src="./assets/sun.png" />
+            </span>
           </span>
-        </span>
-      </button>
-    </header>
-    <main class="min-h-screen flex flex-col items-center mt-4">
-      <section
-        id="aplications"
-        class="w-3/4 h-8/10 overflow-y-auto flex flex-wrap gap-2 py-3 px-4 justify-center"
-      ></section>
+        </button>
+      </header>
+      <section class="min-h-screen flex flex-col items-center mt-4">
+        <section
+          id="aplications"
+          class="w-3/4 h-8/10 overflow-y-auto flex flex-wrap gap-2 py-3 px-4 justify-center"
+        ></section>
+      </section>
     </main>
 
     <script src="./config/apps.js"></script>

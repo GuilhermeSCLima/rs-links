@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Você está offline</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body
+    class="flex flex-col items-center justify-center h-screen bg-stone-100 dark:bg-zinc-700 text-center px-4"
+  >
+    <img src="./assets/logo.png" alt="Logo RS Telecom" class="w-24 mb-4" />
+    <h1 class="text-2xl font-bold text-[#78009d] mb-2">
+      Sem conexão com a internet
+    </h1>
+    <p class="text-stone-800 dark:text-zinc-300 mb-6">
+      Verifique sua conexão e tente novamente.
+    </p>
+    <button
+      onclick="location.reload()"
+      class="bg-[#78009d] text-white px-6 py-2 rounded-xl hover:bg-purple-900 transition"
+    >
+      Tentar novamente
+    </button>
+  </body>
+</html>
